@@ -6,7 +6,7 @@ const emailReducer = (state = initialState, action) =>{
         case "OPEN_EMAIL":
          return action.payload;
         default:
-          return state;
+          return null;
     }
 }
 

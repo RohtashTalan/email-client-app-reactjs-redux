@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { filterClicked } from "../action";
-import emailFilter from "../reducers/filter.reducer";
+import { filterClicked, openEmail } from "../action";
 
 
 
@@ -26,14 +25,17 @@ const addSelectedClass = (e) =>{
             <div className="filter-btns">
                 <span className="filter-btn" onClick={(e)=>{
                     dispatch(filterClicked('Unread'));
+                    dispatch(openEmail(null));
                     addSelectedClass(e);
                     }}>Unread</span>
                 <span className="filter-btn" onClick={(e)=>{
                     dispatch(filterClicked('Read'));
+                    dispatch(openEmail(null));
                     addSelectedClass(e);
                     }}>Read</span>
                 <span className="filter-btn" onClick={(e)=>{
                     dispatch(filterClicked('Favorites'));
+                    dispatch(openEmail(null));
                     addSelectedClass(e);
                     }}>Favorites</span>
             </div>

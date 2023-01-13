@@ -58,12 +58,12 @@ const EmailList = () => {
     }
   };
 
-  const addSelectedClass = (e) => {
+  const addSelectedClass = (id) => {
     let element = document.getElementsByClassName("card");
     for (let i = 0; i < element.length; i++) {
       element[i].classList.remove("opened");
     }
-    element[e].classList.add("opened");
+   document.getElementById(`email_${id}`).classList.add("opened");
   };
 
 const renderEmail = () =>{
@@ -71,9 +71,9 @@ fetchSessionStorage();
     if(filter === 'Unread'){
       return(emails.map((email,i)=>(
         readEmailList[i+1] !== email.id ? 
-        (<div className="card" key={email.id} onClick={() => {
+        (<div className="card" id={'email_'+email.id} key={email.id} onClick={() => {
             dispatch(openEmail(email));
-            addSelectedClass(i); 
+            addSelectedClass(email.id); 
           }} >
           <div className="card__left">
             <p className="avtar text-bold">
@@ -111,9 +111,9 @@ fetchSessionStorage();
     if(filter === 'Read'){
         return(emails.map((email,i)=>(
             readEmailList[i+1] === email.id ? 
-            (<div className="card" key={email.id} onClick={() => {
+            (<div className="card" id={'email_'+email.id}  key={email.id} onClick={() => {
                 dispatch(openEmail(email));
-                addSelectedClass(i); 
+                addSelectedClass(email.id); 
               }} >
               <div className="card__left">
                 <p className="avtar text-bold">
@@ -151,9 +151,9 @@ fetchSessionStorage();
     if(filter === 'Favorites'){
         return(emails.map((email,i)=>(
             favoriteEmailList[i+1] === email.id ? 
-            (<div className="card" key={email.id} onClick={() => {
+            (<div className="card" id={'email_'+email.id}  key={email.id} onClick={() => {
                 dispatch(openEmail(email));
-                addSelectedClass(i); 
+                addSelectedClass(email.id); 
               }} >
               <div className="card__left">
                 <p className="avtar text-bold">
@@ -190,9 +190,9 @@ fetchSessionStorage();
     }
 
     return(emails.map((email,i)=>(
-        <div className="card" key={email.id} onClick={() => {
+        <div className="card"  id={'email_'+email.id} key={email.id} onClick={() => {
             dispatch(openEmail(email));
-            addSelectedClass(i); 
+            addSelectedClass(email.id); 
           }} >
           <div className="card__left">
             <p className="avtar text-bold">
@@ -229,7 +229,6 @@ fetchSessionStorage();
 
   useEffect(() => {
     getEmails();
-    fetchSessionStorage();
   }, [filter]);
 
   return (
