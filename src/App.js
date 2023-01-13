@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import EmailBody from './Components/email-body';
+import EmailFilter from './Components/email-filter';
+import EmailList from './Components/email-list';
 
 function App() {
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div className="container">
+     <EmailFilter />
+   <main className="email-container">     
+     <EmailList />
+     <EmailBody />
+  </main>
+  </div>
   );
 }
 
