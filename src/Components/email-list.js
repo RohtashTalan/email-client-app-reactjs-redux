@@ -69,8 +69,9 @@ const EmailList = () => {
 const renderEmail = () =>{
 fetchSessionStorage();
     if(filter === 'Unread'){
-      return(emails.map((email,i)=>(
-        readEmailList[i+1] !== email.id ? 
+      if(readEmailList){
+      return(emails.map((email)=>(
+        readEmailList[email.id] !== email.id ? 
         (<div className="card" id={'email_'+email.id} key={email.id} onClick={() => {
             dispatch(openEmail(email));
             addSelectedClass(email.id); 
@@ -107,10 +108,13 @@ fetchSessionStorage();
 
         ))
         )
+                }
+                
     }
     if(filter === 'Read'){
-        return(emails.map((email,i)=>(
-            readEmailList[i+1] === email.id ? 
+      if(readEmailList){
+        return(emails.map((email)=>(
+            readEmailList[email.id] === email.id ? 
             (<div className="card" id={'email_'+email.id}  key={email.id} onClick={() => {
                 dispatch(openEmail(email));
                 addSelectedClass(email.id); 
@@ -147,10 +151,14 @@ fetchSessionStorage();
     
             ))
             )
+          }
+
+          return 'No email in Read';
     }
     if(filter === 'Favorites'){
-        return(emails.map((email,i)=>(
-            favoriteEmailList[i+1] === email.id ? 
+      if(favoriteEmailList){
+        return(emails.map((email)=>(
+           favoriteEmailList[email.id] === email.id ? 
             (<div className="card" id={'email_'+email.id}  key={email.id} onClick={() => {
                 dispatch(openEmail(email));
                 addSelectedClass(email.id); 
@@ -182,14 +190,16 @@ fetchSessionStorage();
                   <span>{dateTime(email.date)}</span>
                 </div>
               </div>
-            </div>):('')
+            </div>):('No email in Favourite')
+          
     
-    
-            ))
-            )
+            )))
+       }
+
+       return 'No email in Favourite';
     }
 
-    return(emails.map((email,i)=>(
+    return(emails.map((email)=>(
         <div className="card"  id={'email_'+email.id} key={email.id} onClick={() => {
             dispatch(openEmail(email));
             addSelectedClass(email.id); 
