@@ -71,6 +71,7 @@ body{
   gap: 15px;
   border: var(--border-color) 1.5px solid;
   border-radius: 6px;
+  margin-bottom: 16px;
 }
 
 .card:hover{
@@ -93,7 +94,7 @@ body{
 
 .email-preview__text{
   margin: 1px;
-  width: 300px;
+  width: 320px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -125,11 +126,11 @@ body{
   justify-content: space-between;
 }
 
-.favourite-btn--section{
+.favorite-btn--section{
   margin: 20px 0;
 }
 
-.favourite-btn{
+.favorite-btn{
   background: var(--accent);
   border: 0;
   color: #ffffff;

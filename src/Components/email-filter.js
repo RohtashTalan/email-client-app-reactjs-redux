@@ -1,9 +1,11 @@
+import React, { useState } from "react";
 
 
 
 
 
 const EmailFilter = () => {
+    const [selectedFilter, setSelectedFilter] = useState();
 
     return(
         <>
@@ -12,9 +14,9 @@ const EmailFilter = () => {
                 <span>Filter By :</span>
             </div>
             <div className="filter-btns">
-                <span className="filter-btn">Unread</span>
-                <span className="filter-btn">Read</span>
-                <span className="filter-btn">Favorites</span>
+                <span className="filter-btn" onClick={()=>(selectedFilter('Unread'))}>Unread</span>
+                <span className="filter-btn" onClick={()=>(selectedFilter('Read'))}>Read</span>
+                <span className="filter-btn" onClick={()=>(selectedFilter('Favorites'))}>Favorites</span>
             </div>
         </section>
         </>
