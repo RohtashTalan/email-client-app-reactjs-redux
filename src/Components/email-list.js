@@ -68,6 +68,8 @@ const EmailList = () => {
 
 const renderEmail = () =>{
 fetchSessionStorage();
+
+// list unread emails
     if(filter === 'Unread'){
       if(readEmailList){
       return(emails.map((email)=>(
@@ -111,6 +113,7 @@ fetchSessionStorage();
                 }
                 
     }
+// list read email
     if(filter === 'Read'){
       if(readEmailList){
         return(emails.map((email)=>(
@@ -155,6 +158,8 @@ fetchSessionStorage();
 
           return 'No email in Read';
     }
+
+// list favourites email
     if(filter === 'Favorites'){
       if(favoriteEmailList){
         return(emails.map((email)=>(
@@ -190,7 +195,7 @@ fetchSessionStorage();
                   <span>{dateTime(email.date)}</span>
                 </div>
               </div>
-            </div>):('No email in Favourite')
+            </div>):('')
           
     
             )))
