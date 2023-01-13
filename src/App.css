@@ -29,6 +29,9 @@ body{
   background: var(--accent);
 }
 
+
+
+
 .email-container{
   display: flex;
   width: 100%;
@@ -106,7 +109,7 @@ body{
 .email-body{
   display: flex;
   gap: 16px;
-  min-height: 100vh;
+  height: max-content;
   background-color: var(--read-bg-color);
   color: var(--text-color);
   border: var(--border-color) 1.5px solid;
@@ -137,4 +140,18 @@ body{
   border-radius: 20px;
   cursor: pointer;
   padding: 8px 12px;
+}
+
+
+
+
+.selected{
+  border:var(--border-color) 1.5px solid;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.opened{
+  border-color: var(--accent);
+  background: var(--read-bg-color);
 }
